@@ -42,6 +42,6 @@ A desktop companion that shows the state of coding agent sessions (Claude Code, 
 ## How the work is done
 
 - Small, single-topic changes that follow each project's conventions
-- A regression test for every fix, checked to fail without it
+- Bug fixes come with a regression test where the project has a test suite, checked to fail without the fix
 - Only synthetic test data; no proprietary content
 - Nothing is published to another project without my review

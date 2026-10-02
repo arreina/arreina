@@ -42,6 +42,6 @@ Aplicación de escritorio que muestra en la parte superior de la pantalla el est
 ## Cómo se trabaja
 
 - Cambios pequeños, de un solo tema, siguiendo las convenciones de cada proyecto
-- Un test de regresión por cada corrección, comprobando que falla sin ella
+- Las correcciones incluyen un test de regresión cuando el proyecto tiene tests, comprobando que falla sin la corrección
 - Solo datos de prueba sintéticos; nada de contenido propietario
 - Nada se publica en otro proyecto sin mi revisión
