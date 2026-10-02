@@ -17,6 +17,7 @@ Herramienta que porta ejecutables de PS5 a Linux y Windows. Mis contribuciones s
 | [#213](https://github.com/boykopovar/AnyPS5/pull/213) fix(shader): skip the push constant copy when there is nothing to copy | Aceptado | Comportamiento indefinido detectado por UBSan en la caché de shaders |
 | [#280](https://github.com/boykopovar/AnyPS5/pull/280) fix(shader): reject SDWA and DPP instructions without their modifier word | Aceptado | Instrucciones de GPU truncadas se leían fuera de límites |
 | [#328](https://github.com/boykopovar/AnyPS5/pull/328) fix(json2): reject documents nested deeper than 512 levels | En revisión | Un JSON muy anidado tumbaba el proceso (desbordamiento de pila) |
+| [#412](https://github.com/boykopovar/AnyPS5/pull/412) fix(shader): reject position exports without vertex input info | En revisión | Un shader de píxeles que exportaba una posición tumbaba el recompilador (puntero nulo) |
 | [#352](https://github.com/boykopovar/AnyPS5/pull/352) fix(savedata): reject invalid directory names in sceSaveDataDelete | En revisión | Un `../` en el nombre de una partida borraba carpetas fuera de la de partidas |
 
 Mi fork, [arreina/AnyPS5](https://github.com/arreina/AnyPS5), añade la integración continua de este trabajo: jobs con AddressSanitizer y UBSan, análisis estático (cppcheck, clang-tidy), validación de SPIR-V y fuzzers para el lector ELF, los decodificadores de instrucciones x86 y de GPU, el recompilador de shaders, la caché de shaders, JSON y los paquetes de comandos de GPU. Han encontrado 11 bugs; los que faltan están en cola para proponerse.
@@ -35,9 +36,26 @@ Aplicación de escritorio que muestra en la parte superior de la pantalla el est
 
 ## Proyectos propios
 
-| Proyecto | Descripción |
-|---|---|
-| [lince](https://github.com/arreina/lince) · C | Lenguaje de programación de propósito general en español |
+### [Lince](https://github.com/arreina/lince) · C
+
+Lenguaje de programación de propósito general con palabras clave en español, para que programar no exija saber inglés. Escrito en C puro, sin dependencias externas; se compila con `gcc` y `make` en Linux, macOS y Windows. La versión 0.5 tiene clases y tipos, y un compilador que genera ejecutables nativos. Web: [arreina.github.io/lince](https://arreina.github.io/lince).
+
+```
+clase Persona {
+    funcion crear(val texto nombre, val numero edad): nulo {
+        mi.nombre = nombre
+        mi.edad   = edad
+    }
+    funcion saludar(): texto {
+        devolver "Hola, soy " + mi.nombre + " y tengo " + mi.edad + " años"
+    }
+}
+
+sea lista personas = [Persona("Ana", 22), Persona("Luis", 30)]
+para cada elemento p en personas {
+    escribir(p.saludar())
+}
+```
 
 ## Cómo se trabaja
 
