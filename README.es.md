@@ -21,12 +21,23 @@ Herramienta que porta ejecutables de PS5 a Linux y Windows. Mis contribuciones s
 
 Mi fork, [arreina/AnyPS5](https://github.com/arreina/AnyPS5), añade la integración continua de este trabajo: jobs con AddressSanitizer y UBSan, análisis estático (cppcheck, clang-tidy), validación de SPIR-V y fuzzers para el lector ELF, los decodificadores de instrucciones x86 y de GPU, el recompilador de shaders, la caché de shaders, JSON y los paquetes de comandos de GPU. Han encontrado 11 bugs; los que faltan están en cola para proponerse.
 
+### [Coucou](https://github.com/Louis-CFM/coucou) · Tauri (Rust, TypeScript)
+
+Aplicación de escritorio que muestra en la parte superior de la pantalla el estado de las sesiones de agentes de programación (Claude Code, Codex, Gemini CLI y otros). Mis contribuciones son a su versión para Linux.
+
+| Pull request | Estado | Qué hace |
+|---|---|---|
+| [#104](https://github.com/Louis-CFM/coucou/pull/104) Linux (X11): keep the island unfocusable and on every workspace | Aceptado | La ventana ya no roba el foco del teclado y aparece en todos los escritorios |
+| [#110](https://github.com/Louis-CFM/coucou/pull/110) Pause idle animations, and stop polling for a cursor Linux doesn't have | Aceptado | Menos consumo de CPU en reposo |
+| [#111](https://github.com/Louis-CFM/coucou/pull/111) Linux: shrink the hidden island to its wake strip, and only take clicks there | Aceptado | La ventana oculta ya no bloquea los clics en las ventanas de debajo |
+| [#105](https://github.com/Louis-CFM/coucou/pull/105) Add npm run fake-session to try the island without Claude Code | En revisión | Una sesión simulada para desarrollar y probar sin un agente |
+| [#106](https://github.com/Louis-CFM/coucou/pull/106) Ignore clicks on a fresh approval card, and wire up Y / N | En revisión | Evita aprobar un permiso por accidente y añade atajos de teclado |
+
 ## Proyectos propios
 
 | Proyecto | Descripción |
 |---|---|
 | [lince](https://github.com/arreina/lince) · C | Lenguaje de programación de propósito general en español |
-| [bot-reels-videojuegos](https://github.com/arreina/bot-reels-videojuegos) · Python | Convierte noticias de videojuegos en vídeos verticales: guion, voz sintética, imágenes libres de derechos y control desde el móvil |
 
 ## Cómo se trabaja
 

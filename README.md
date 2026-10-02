@@ -21,12 +21,23 @@ A tool that ports PS5 executables to Linux and Windows. My contributions are rob
 
 My fork, [arreina/AnyPS5](https://github.com/arreina/AnyPS5), adds CI for this work: AddressSanitizer and UBSan jobs, static analysis (cppcheck, clang-tidy), SPIR-V validation, and fuzzers for the ELF reader, x86 and GPU instruction decoders, the shader recompiler, the shader cache, JSON and GPU command packets. They found 11 bugs; the rest are queued for upstream.
 
+### [Coucou](https://github.com/Louis-CFM/coucou) · Tauri (Rust, TypeScript)
+
+A desktop companion that shows the state of coding agent sessions (Claude Code, Codex, Gemini CLI and others) at the top of the screen. My contributions are to its Linux version.
+
+| Pull request | Status | What it does |
+|---|---|---|
+| [#104](https://github.com/Louis-CFM/coucou/pull/104) Linux (X11): keep the island unfocusable and on every workspace | Merged | The overlay no longer steals keyboard focus and follows you across workspaces |
+| [#110](https://github.com/Louis-CFM/coucou/pull/110) Pause idle animations, and stop polling for a cursor Linux doesn't have | Merged | Lower idle CPU use |
+| [#111](https://github.com/Louis-CFM/coucou/pull/111) Linux: shrink the hidden island to its wake strip, and only take clicks there | Merged | The hidden overlay no longer blocks clicks on the windows below it |
+| [#105](https://github.com/Louis-CFM/coucou/pull/105) Add npm run fake-session to try the island without Claude Code | In review | A simulated session for developing and testing without an agent |
+| [#106](https://github.com/Louis-CFM/coucou/pull/106) Ignore clicks on a fresh approval card, and wire up Y / N | In review | Prevents approving a permission request by accident; adds keyboard shortcuts |
+
 ## Own projects
 
 | Project | Description |
 |---|---|
 | [lince](https://github.com/arreina/lince) · C | A general-purpose programming language in Spanish |
-| [bot-reels-videojuegos](https://github.com/arreina/bot-reels-videojuegos) · Python | Turns video game news into vertical short videos: script, synthetic voice, royalty-free footage, controlled from a phone |
 
 ## How the work is done
 
