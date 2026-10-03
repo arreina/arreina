@@ -41,7 +41,7 @@ ATRAC9 audio decoder used by PS4/PS5 emulators.
 
 | Pull request | Status | What it fixes |
 |---|---|---|
-| [#5](https://github.com/shadps4-emu/ext-LibAtrac9/pull/5) Range-check band extension and gradient parameters | In review | Corrupt audio frames made the decoder read and write past its own arrays |
+| [#5](https://github.com/shadps4-emu/ext-LibAtrac9/pull/5) Range-check band extension, gradient and channel config parameters | In review | Corrupt audio frames made the decoder read and write past its own arrays |
 
 ## Own projects
 
