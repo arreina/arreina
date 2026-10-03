@@ -18,6 +18,7 @@ Herramienta que porta ejecutables de PS5 a Linux y Windows. Mis contribuciones s
 | [#280](https://github.com/boykopovar/AnyPS5/pull/280) fix(shader): reject SDWA and DPP instructions without their modifier word | Aceptado | Instrucciones de GPU truncadas se leían fuera de límites |
 | [#328](https://github.com/boykopovar/AnyPS5/pull/328) fix(json2): reject documents nested deeper than 512 levels | Aceptado | Un JSON muy anidado tumbaba el proceso (desbordamiento de pila) |
 | [#412](https://github.com/boykopovar/AnyPS5/pull/412) fix(shader): reject position exports without vertex input info | En revisión | Un shader de píxeles que exportaba una posición tumbaba el recompilador (puntero nulo) |
+| [#455](https://github.com/boykopovar/AnyPS5/pull/455) fix(audio): bound ATRAC9 decoding to the superframe | En revisión | Un audio ATRAC9 corrupto hacía que el decodificador leyera más allá del buffer del juego |
 | [#352](https://github.com/boykopovar/AnyPS5/pull/352) fix(savedata): reject invalid directory names in sceSaveDataDelete | En revisión | Un `../` en el nombre de una partida borraba carpetas fuera de la de partidas |
 
 Mi fork, [arreina/AnyPS5](https://github.com/arreina/AnyPS5), añade la integración continua de este trabajo: jobs con AddressSanitizer y UBSan, análisis estático (cppcheck, clang-tidy), validación de SPIR-V y fuzzers para el lector ELF, los decodificadores de instrucciones x86 y de GPU, el recompilador de shaders, la caché de shaders, JSON y los paquetes de comandos de GPU. Han encontrado 11 bugs; los que faltan están en cola para proponerse.
@@ -33,6 +34,14 @@ Aplicación de escritorio que muestra en la parte superior de la pantalla el est
 | [#111](https://github.com/Louis-CFM/coucou/pull/111) Linux: shrink the hidden island to its wake strip, and only take clicks there | Aceptado | La ventana oculta ya no bloquea los clics en las ventanas de debajo |
 | [#105](https://github.com/Louis-CFM/coucou/pull/105) Add npm run fake-session to try the island without Claude Code | En revisión | Una sesión simulada para desarrollar y probar sin un agente |
 | [#106](https://github.com/Louis-CFM/coucou/pull/106) Ignore clicks on a fresh approval card, and wire up Y / N | En revisión | Evita aprobar un permiso por accidente y añade atajos de teclado |
+
+### [LibAtrac9](https://github.com/shadps4-emu/ext-LibAtrac9) · C
+
+Decodificador de audio ATRAC9 que usan emuladores de PS4/PS5.
+
+| Pull request | Estado | Qué corrige |
+|---|---|---|
+| [#5](https://github.com/shadps4-emu/ext-LibAtrac9/pull/5) Range-check band extension and gradient parameters | En revisión | Frames de audio corruptos hacían que el decodificador leyera y escribiera fuera de sus propios arrays |
 
 ## Proyectos propios
 

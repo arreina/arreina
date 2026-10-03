@@ -18,6 +18,7 @@ A tool that ports PS5 executables to Linux and Windows. My contributions are rob
 | [#280](https://github.com/boykopovar/AnyPS5/pull/280) fix(shader): reject SDWA and DPP instructions without their modifier word | Merged | Truncated GPU instructions were read out of bounds |
 | [#328](https://github.com/boykopovar/AnyPS5/pull/328) fix(json2): reject documents nested deeper than 512 levels | Merged | Deeply nested JSON crashed the process (stack overflow) |
 | [#412](https://github.com/boykopovar/AnyPS5/pull/412) fix(shader): reject position exports without vertex input info | In review | A pixel shader exporting a position crashed the recompiler (null pointer) |
+| [#455](https://github.com/boykopovar/AnyPS5/pull/455) fix(audio): bound ATRAC9 decoding to the superframe | In review | Corrupt ATRAC9 audio made the decoder read past the game's buffer |
 | [#352](https://github.com/boykopovar/AnyPS5/pull/352) fix(savedata): reject invalid directory names in sceSaveDataDelete | In review | `../` in a save name deleted directories outside the save folder |
 
 My fork, [arreina/AnyPS5](https://github.com/arreina/AnyPS5), adds CI for this work: AddressSanitizer and UBSan jobs, static analysis (cppcheck, clang-tidy), SPIR-V validation, and fuzzers for the ELF reader, x86 and GPU instruction decoders, the shader recompiler, the shader cache, JSON and GPU command packets. They found 11 bugs; the rest are queued for upstream.
@@ -33,6 +34,14 @@ A desktop companion that shows the state of coding agent sessions (Claude Code, 
 | [#111](https://github.com/Louis-CFM/coucou/pull/111) Linux: shrink the hidden island to its wake strip, and only take clicks there | Merged | The hidden overlay no longer blocks clicks on the windows below it |
 | [#105](https://github.com/Louis-CFM/coucou/pull/105) Add npm run fake-session to try the island without Claude Code | In review | A simulated session for developing and testing without an agent |
 | [#106](https://github.com/Louis-CFM/coucou/pull/106) Ignore clicks on a fresh approval card, and wire up Y / N | In review | Prevents approving a permission request by accident; adds keyboard shortcuts |
+
+### [LibAtrac9](https://github.com/shadps4-emu/ext-LibAtrac9) · C
+
+ATRAC9 audio decoder used by PS4/PS5 emulators.
+
+| Pull request | Status | What it fixes |
+|---|---|---|
+| [#5](https://github.com/shadps4-emu/ext-LibAtrac9/pull/5) Range-check band extension and gradient parameters | In review | Corrupt audio frames made the decoder read and write past its own arrays |
 
 ## Own projects
 
