@@ -16,7 +16,7 @@ Herramienta que porta ejecutables de PS5 a Linux y Windows. Mis contribuciones s
 | [#193](https://github.com/boykopovar/AnyPS5/pull/193) fix(relinker): keep ELF bounds checks from overflowing | Aceptado | Offsets manipulados desbordaban la comprobación de límites (heap overflow) |
 | [#213](https://github.com/boykopovar/AnyPS5/pull/213) fix(shader): skip the push constant copy when there is nothing to copy | Aceptado | Comportamiento indefinido detectado por UBSan en la caché de shaders |
 | [#280](https://github.com/boykopovar/AnyPS5/pull/280) fix(shader): reject SDWA and DPP instructions without their modifier word | Aceptado | Instrucciones de GPU truncadas se leían fuera de límites |
-| [#328](https://github.com/boykopovar/AnyPS5/pull/328) fix(json2): reject documents nested deeper than 512 levels | En revisión | Un JSON muy anidado tumbaba el proceso (desbordamiento de pila) |
+| [#328](https://github.com/boykopovar/AnyPS5/pull/328) fix(json2): reject documents nested deeper than 512 levels | Aceptado | Un JSON muy anidado tumbaba el proceso (desbordamiento de pila) |
 | [#412](https://github.com/boykopovar/AnyPS5/pull/412) fix(shader): reject position exports without vertex input info | En revisión | Un shader de píxeles que exportaba una posición tumbaba el recompilador (puntero nulo) |
 | [#352](https://github.com/boykopovar/AnyPS5/pull/352) fix(savedata): reject invalid directory names in sceSaveDataDelete | En revisión | Un `../` en el nombre de una partida borraba carpetas fuera de la de partidas |
 

@@ -16,7 +16,7 @@ A tool that ports PS5 executables to Linux and Windows. My contributions are rob
 | [#193](https://github.com/boykopovar/AnyPS5/pull/193) fix(relinker): keep ELF bounds checks from overflowing | Merged | Crafted offsets wrapped the bounds check (heap overflow) |
 | [#213](https://github.com/boykopovar/AnyPS5/pull/213) fix(shader): skip the push constant copy when there is nothing to copy | Merged | Undefined behaviour reported by UBSan in the shader cache |
 | [#280](https://github.com/boykopovar/AnyPS5/pull/280) fix(shader): reject SDWA and DPP instructions without their modifier word | Merged | Truncated GPU instructions were read out of bounds |
-| [#328](https://github.com/boykopovar/AnyPS5/pull/328) fix(json2): reject documents nested deeper than 512 levels | In review | Deeply nested JSON crashed the process (stack overflow) |
+| [#328](https://github.com/boykopovar/AnyPS5/pull/328) fix(json2): reject documents nested deeper than 512 levels | Merged | Deeply nested JSON crashed the process (stack overflow) |
 | [#412](https://github.com/boykopovar/AnyPS5/pull/412) fix(shader): reject position exports without vertex input info | In review | A pixel shader exporting a position crashed the recompiler (null pointer) |
 | [#352](https://github.com/boykopovar/AnyPS5/pull/352) fix(savedata): reject invalid directory names in sceSaveDataDelete | In review | `../` in a save name deleted directories outside the save folder |
 
