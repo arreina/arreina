@@ -48,7 +48,7 @@ ATRAC9 audio decoder used by PS4/PS5 emulators.
 
 ### [Lince](https://github.com/arreina/lince) · C
 
-A general-purpose programming language with Spanish keywords, so that programming does not require knowing English. Written in plain C with no external dependencies; builds with `gcc` and `make` on Linux, macOS and Windows. Version 0.5 has classes and types, and a compiler that produces native executables. Website: [arreina.github.io/lince](https://arreina.github.io/lince).
+A general-purpose programming language with Spanish keywords, so that programming does not require knowing English. Written in plain C with no external dependencies; builds with `gcc` and `make` on Linux, macOS and Windows. Version 0.6 has classes, interfaces, enumerations, generators and closures, libraries you can split across files and give a namespace to, and a compiler that produces native executables. The manual's examples are real `.lince` files that run when the page is built, so the output it shows is the output they produce. Website: [arreina.github.io/lince](https://arreina.github.io/lince) · [Manual](https://arreina.github.io/lince/manual.html).
 
 ```
 clase Persona {
