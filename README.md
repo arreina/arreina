@@ -19,7 +19,7 @@ A tool that ports PS5 executables to Linux and Windows. My contributions are rob
 | [#328](https://github.com/boykopovar/AnyPS5/pull/328) fix(json2): reject documents nested deeper than 512 levels | Merged | Deeply nested JSON crashed the process (stack overflow) |
 | [#412](https://github.com/boykopovar/AnyPS5/pull/412) fix(shader): reject position exports without vertex input info | Merged | A pixel shader exporting a position crashed the recompiler (null pointer) |
 | [#455](https://github.com/boykopovar/AnyPS5/pull/455) fix(audio): bound ATRAC9 decoding to the superframe | Merged | Corrupt ATRAC9 audio made the decoder read past the game's buffer |
-| [#488](https://github.com/boykopovar/AnyPS5/pull/488) fix(json2): reject numbers that overflow to infinity | In review | A JSON number like `1e309` became infinity and crashed the process when serialized |
+| [#488](https://github.com/boykopovar/AnyPS5/pull/488) fix(json2): throw on numbers that overflow a double | Merged | A JSON number like `1e309` became infinity and crashed the process when serialized |
 | [#352](https://github.com/boykopovar/AnyPS5/pull/352) fix(savedata): reject invalid directory names in sceSaveDataDelete | Merged | `../` in a save name deleted directories outside the save folder |
 
 My fork, [arreina/AnyPS5](https://github.com/arreina/AnyPS5), adds CI for this work: AddressSanitizer and UBSan jobs, static analysis (cppcheck, clang-tidy), SPIR-V validation, and fuzzers for the ELF reader, x86 and GPU instruction decoders, the shader recompiler, the shader cache, JSON and GPU command packets. They found 11 bugs; the rest are queued for upstream.
