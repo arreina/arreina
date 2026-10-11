@@ -22,6 +22,7 @@ Herramienta que porta ejecutables de PS5 a Linux y Windows. Mis contribuciones s
 | [#488](https://github.com/boykopovar/AnyPS5/pull/488) fix(json2): throw on numbers that overflow a double | Aceptado | Un número JSON como `1e309` se convertía en infinito y cerraba el proceso al serializarlo |
 | [#352](https://github.com/boykopovar/AnyPS5/pull/352) fix(savedata): reject invalid directory names in sceSaveDataDelete | Aceptado | Un `../` en el nombre de una partida borraba carpetas fuera de la de partidas |
 | [#3631](https://github.com/boykopovar/AnyPS5/pull/3631) test(json2): destroy the value before constructing over it | En revisión | Un test perdía un nodo de memoria, detectado por LeakSanitizer |
+| [#3971](https://github.com/boykopovar/AnyPS5/pull/3971) fix(libkernel): limit param.json nesting depth | En revisión | Un `param.json` con decenas de miles de arrays anidados cerraba el proceso (desbordamiento de pila) |
 
 Mi fork, [arreina/AnyPS5](https://github.com/arreina/AnyPS5), añade la integración continua de este trabajo: jobs con AddressSanitizer y UBSan, análisis estático (cppcheck, clang-tidy), validación de SPIR-V y fuzzers para el lector ELF, los decodificadores de instrucciones x86 y de GPU, el recompilador de shaders, la caché de shaders, JSON y los paquetes de comandos de GPU. Han encontrado más de una docena de bugs; los que aún no se han reportado están en cola.
 
@@ -30,7 +31,7 @@ Issues que he reportado:
 | Issue | Estado | Qué es |
 |---|---|---|
 | [#1276](https://github.com/boykopovar/AnyPS5/issues/1276) ANYPS5_ENABLE_SPIRV_TOOLS: CCP turns a constant byte store into an 8-bit OpConstant that the module cannot declare | Arreglada en [#1343](https://github.com/boykopovar/AnyPS5/pull/1343) 14 horas después | La encontró el fuzzer del recompilador; el arreglo se probó con el shader de la issue |
-| [#3634](https://github.com/boykopovar/AnyPS5/issues/3634) AddressSanitizer on Linux: the PS5 window is the shadow gap, so the guest arena has no free range | Abierta | Las compilaciones con sanitizers no pueden reservar memoria del guest; incluye una solución verificada |
+| [#3634](https://github.com/boykopovar/AnyPS5/issues/3634) AddressSanitizer on Linux: the PS5 window is the shadow gap, so the guest arena has no free range | Arreglada en [#3705](https://github.com/boykopovar/AnyPS5/pull/3705) (por otra persona) | Las compilaciones con sanitizers no podían reservar memoria del guest. La solución usa el mismo enfoque que la solución descrita en la incidencia: sacar la ventana del guest del hueco de sombra |
 
 También ejecuté los tests de AMD de la [#487](https://github.com/boykopovar/AnyPS5/issues/487) en una Radeon RX 580 (Polaris), y un mantenedor citó el resultado al cerrarla.
 

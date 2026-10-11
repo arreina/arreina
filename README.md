@@ -22,6 +22,7 @@ A tool that ports PS5 executables to Linux and Windows. My contributions are rob
 | [#488](https://github.com/boykopovar/AnyPS5/pull/488) fix(json2): throw on numbers that overflow a double | Merged | A JSON number like `1e309` became infinity and crashed the process when serialized |
 | [#352](https://github.com/boykopovar/AnyPS5/pull/352) fix(savedata): reject invalid directory names in sceSaveDataDelete | Merged | `../` in a save name deleted directories outside the save folder |
 | [#3631](https://github.com/boykopovar/AnyPS5/pull/3631) test(json2): destroy the value before constructing over it | In review | A test leaked a node, reported by LeakSanitizer |
+| [#3971](https://github.com/boykopovar/AnyPS5/pull/3971) fix(libkernel): limit param.json nesting depth | In review | A `param.json` with tens of thousands of nested arrays crashed the process (stack overflow) |
 
 My fork, [arreina/AnyPS5](https://github.com/arreina/AnyPS5), adds CI for this work: AddressSanitizer and UBSan jobs, static analysis (cppcheck, clang-tidy), SPIR-V validation, and fuzzers for the ELF reader, x86 and GPU instruction decoders, the shader recompiler, the shader cache, JSON and GPU command packets. They have found more than a dozen bugs; the ones not yet reported are queued.
 
@@ -30,7 +31,7 @@ Issues I reported:
 | Issue | Status | What it is |
 |---|---|---|
 | [#1276](https://github.com/boykopovar/AnyPS5/issues/1276) ANYPS5_ENABLE_SPIRV_TOOLS: CCP turns a constant byte store into an 8-bit OpConstant that the module cannot declare | Fixed in [#1343](https://github.com/boykopovar/AnyPS5/pull/1343) 14 hours later | Found by the recompiler fuzzer; the fix was tested with the shader from the issue |
-| [#3634](https://github.com/boykopovar/AnyPS5/issues/3634) AddressSanitizer on Linux: the PS5 window is the shadow gap, so the guest arena has no free range | Open | Sanitizer builds cannot allocate guest memory; includes a verified workaround |
+| [#3634](https://github.com/boykopovar/AnyPS5/issues/3634) AddressSanitizer on Linux: the PS5 window is the shadow gap, so the guest arena has no free range | Fixed in [#3705](https://github.com/boykopovar/AnyPS5/pull/3705) (by another contributor) | Sanitizer builds could not allocate guest memory. The fix uses the same approach as the workaround described in the issue: move the guest window out of the shadow gap |
 
 I also ran the AMD tests of [#487](https://github.com/boykopovar/AnyPS5/issues/487) on a Radeon RX 580 (Polaris), and a maintainer cited the result when closing it.
 
