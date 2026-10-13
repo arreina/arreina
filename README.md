@@ -21,8 +21,8 @@ A tool that ports PS5 executables to Linux and Windows. My contributions are rob
 | [#455](https://github.com/boykopovar/AnyPS5/pull/455) fix(audio): bound ATRAC9 decoding to the superframe | Merged | Corrupt ATRAC9 audio made the decoder read past the game's buffer |
 | [#488](https://github.com/boykopovar/AnyPS5/pull/488) fix(json2): throw on numbers that overflow a double | Merged | A JSON number like `1e309` became infinity and crashed the process when serialized |
 | [#352](https://github.com/boykopovar/AnyPS5/pull/352) fix(savedata): reject invalid directory names in sceSaveDataDelete | Merged | `../` in a save name deleted directories outside the save folder |
-| [#3631](https://github.com/boykopovar/AnyPS5/pull/3631) test(json2): destroy the value before constructing over it | In review | A test leaked a node, reported by LeakSanitizer |
-| [#3971](https://github.com/boykopovar/AnyPS5/pull/3971) fix(libkernel): limit param.json nesting depth | In review | A `param.json` with tens of thousands of nested arrays crashed the process (stack overflow) |
+| [#3631](https://github.com/boykopovar/AnyPS5/pull/3631) test(json2): destroy the value before constructing over it | Merged | A test leaked a node, reported by LeakSanitizer |
+| [#3971](https://github.com/boykopovar/AnyPS5/pull/3971) fix(libkernel): limit param.json nesting depth | Merged | A `param.json` with tens of thousands of nested arrays crashed the process (stack overflow) |
 
 My fork, [arreina/AnyPS5](https://github.com/arreina/AnyPS5), adds CI for this work: AddressSanitizer and UBSan jobs, static analysis (cppcheck, clang-tidy), SPIR-V validation, and fuzzers for the ELF reader, x86 and GPU instruction decoders, the shader recompiler, the shader cache, JSON and GPU command packets. They have found more than a dozen bugs; the ones not yet reported are queued.
 

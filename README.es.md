@@ -21,8 +21,8 @@ Herramienta que porta ejecutables de PS5 a Linux y Windows. Mis contribuciones s
 | [#455](https://github.com/boykopovar/AnyPS5/pull/455) fix(audio): bound ATRAC9 decoding to the superframe | Aceptado | Un audio ATRAC9 corrupto hacía que el decodificador leyera más allá del buffer del juego |
 | [#488](https://github.com/boykopovar/AnyPS5/pull/488) fix(json2): throw on numbers that overflow a double | Aceptado | Un número JSON como `1e309` se convertía en infinito y cerraba el proceso al serializarlo |
 | [#352](https://github.com/boykopovar/AnyPS5/pull/352) fix(savedata): reject invalid directory names in sceSaveDataDelete | Aceptado | Un `../` en el nombre de una partida borraba carpetas fuera de la de partidas |
-| [#3631](https://github.com/boykopovar/AnyPS5/pull/3631) test(json2): destroy the value before constructing over it | En revisión | Un test perdía un nodo de memoria, detectado por LeakSanitizer |
-| [#3971](https://github.com/boykopovar/AnyPS5/pull/3971) fix(libkernel): limit param.json nesting depth | En revisión | Un `param.json` con decenas de miles de arrays anidados cerraba el proceso (desbordamiento de pila) |
+| [#3631](https://github.com/boykopovar/AnyPS5/pull/3631) test(json2): destroy the value before constructing over it | Fusionada | Un test perdía un nodo de memoria, detectado por LeakSanitizer |
+| [#3971](https://github.com/boykopovar/AnyPS5/pull/3971) fix(libkernel): limit param.json nesting depth | Fusionada | Un `param.json` con decenas de miles de arrays anidados cerraba el proceso (desbordamiento de pila) |
 
 Mi fork, [arreina/AnyPS5](https://github.com/arreina/AnyPS5), añade la integración continua de este trabajo: jobs con AddressSanitizer y UBSan, análisis estático (cppcheck, clang-tidy), validación de SPIR-V y fuzzers para el lector ELF, los decodificadores de instrucciones x86 y de GPU, el recompilador de shaders, la caché de shaders, JSON y los paquetes de comandos de GPU. Han encontrado más de una docena de bugs; los que aún no se han reportado están en cola.
 
