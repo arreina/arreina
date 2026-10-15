@@ -35,6 +35,8 @@ Issues que he reportado:
 
 También ejecuté los tests de AMD de la [#487](https://github.com/boykopovar/AnyPS5/issues/487) en una Radeon RX 580 (Polaris), y un mantenedor citó el resultado al cerrarla.
 
+En la [#2709](https://github.com/boykopovar/AnyPS5/issues/2709), un fallo intermitente del test `guest_avplayer`, ejecuté 1.000 pruebas de estrés con AddressSanitizer y UBSan sin ningún fallo en Linux y publiqué el resultado. El fallo que quedaba en Windows lo arregló otra persona en la [#5733](https://github.com/boykopovar/AnyPS5/pull/5733).
+
 ### [Coucou](https://github.com/Louis-CFM/coucou) · Tauri (Rust, TypeScript)
 
 Aplicación de escritorio que muestra en la parte superior de la pantalla el estado de las sesiones de agentes de programación (Claude Code, Codex, Gemini CLI y otros). Mis contribuciones son a su versión para Linux.
