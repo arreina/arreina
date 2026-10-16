@@ -61,22 +61,29 @@ Decodificador de audio ATRAC9 que usan emuladores de PS4/PS5.
 
 ### [Lince](https://github.com/arreina/lince) · C
 
-Lenguaje de programación de propósito general con palabras clave en español, para que programar no exija saber inglés. Escrito en C puro, sin dependencias externas; se compila con `gcc` y `make` en Linux, macOS y Windows. La versión 0.6 tiene clases, interfaces, enumeraciones, generadores y closures, librerías que se pueden repartir en varios ficheros y con espacio de nombres propio, y un compilador que genera ejecutables nativos. Los ejemplos del manual son ficheros `.lince` reales que se ejecutan al generar la página, así que la salida que muestra es la que producen. Web: [arreina.github.io/lince](https://arreina.github.io/lince) · [Manual](https://arreina.github.io/lince/manual.html).
+Lenguaje de programación para hacer videojuegos, con palabras clave en español, para que programar no exija saber inglés. Escrito en C puro, sin nada que instalar para compilarlo (`gcc` y `make`); probado en Linux y Windows. El módulo `juego` trae ventana, dibujo 2D, sprites dibujados con texto, teclado, ratón y mando, sonido (WAV y OGG), partículas y escenas.
+
+- **Recarga en caliente**: guardas el archivo con el juego en marcha y se actualiza sin cerrar la ventana, con el jugador donde estaba. Los errores salen en la propia ventana.
+- **Para compartir**: `lince repartir` convierte un juego en un `.zip` con SDL2 dentro que funciona sin instalar nada.
+- **Documentación que no se desfasa**: los ejemplos del manual y los pasos del tutorial son programas reales que se ejecutan al generar las páginas, y la CI falla si una página deja de cuadrar.
+
+Web: [arreina.github.io/lince](https://arreina.github.io/lince) · [Tutorial: tu primer juego](https://arreina.github.io/lince/tutorial.html) · [Manual](https://arreina.github.io/lince/manual.html)
+
+<img src="https://arreina.github.io/lince/img/08_plataformas.png" width="400" alt="Juego de plataformas hecho con Lince">
 
 ```
-clase Persona {
-    funcion crear(val texto nombre, val numero edad): nulo {
-        mi.nombre = nombre
-        mi.edad   = edad
-    }
-    funcion saludar(): texto {
-        devolver "Hola, soy " + mi.nombre + " y tengo " + mi.edad + " años"
-    }
-}
+importar "juego"
 
-sea lista personas = [Persona("Ana", 22), Persona("Luis", 30)]
-para cada elemento p en personas {
-    escribir(p.saludar())
+juego.abrir("Mi juego", 640, 480)
+sea x = 320
+
+mientras juego.abierto() {
+    si juego.tecla("derecha") { x = x + 300 * juego.dt() }
+    si juego.tecla("izquierda") { x = x - 300 * juego.dt() }
+    juego.limpiar([20, 24, 48])
+    juego.circulo(x, 240, 20, "#ffc850")
+    juego.texto("HOLA", 20, 20, 3)
+    juego.presentar()
 }
 ```
 

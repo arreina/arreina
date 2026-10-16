@@ -61,22 +61,29 @@ ATRAC9 audio decoder used by PS4/PS5 emulators.
 
 ### [Lince](https://github.com/arreina/lince) · C
 
-A general-purpose programming language with Spanish keywords, so that programming does not require knowing English. Written in plain C with no external dependencies; builds with `gcc` and `make` on Linux, macOS and Windows. Version 0.6 has classes, interfaces, enumerations, generators and closures, libraries you can split across files and give a namespace to, and a compiler that produces native executables. The manual's examples are real `.lince` files that run when the page is built, so the output it shows is the output they produce. Website: [arreina.github.io/lince](https://arreina.github.io/lince) · [Manual](https://arreina.github.io/lince/manual.html).
+A programming language for making video games, with Spanish keywords, so that programming does not require knowing English. Written in plain C with nothing to install to build it (`gcc` and `make`); tested on Linux and Windows. The `juego` module brings a window, 2D drawing, sprites drawn with text, keyboard, mouse and gamepad, sound (WAV and OGG), particles and scenes.
+
+- **Hot reload**: save the file while the game is running and it updates without closing the window, with the player where they were. Errors show up in the game window.
+- **Sharing**: `lince repartir` turns a game into a `.zip` with SDL2 inside that runs without installing anything.
+- **Documentation that cannot drift**: the manual's examples and the tutorial's steps are real programs that run when the pages are built, and CI fails if a page no longer matches.
+
+Website: [arreina.github.io/lince](https://arreina.github.io/lince) · [Tutorial: your first game](https://arreina.github.io/lince/tutorial.html) · [Manual](https://arreina.github.io/lince/manual.html)
+
+<img src="https://arreina.github.io/lince/img/08_plataformas.png" width="400" alt="Platform game made with Lince">
 
 ```
-clase Persona {
-    funcion crear(val texto nombre, val numero edad): nulo {
-        mi.nombre = nombre
-        mi.edad   = edad
-    }
-    funcion saludar(): texto {
-        devolver "Hola, soy " + mi.nombre + " y tengo " + mi.edad + " años"
-    }
-}
+importar "juego"
 
-sea lista personas = [Persona("Ana", 22), Persona("Luis", 30)]
-para cada elemento p en personas {
-    escribir(p.saludar())
+juego.abrir("Mi juego", 640, 480)
+sea x = 320
+
+mientras juego.abierto() {
+    si juego.tecla("derecha") { x = x + 300 * juego.dt() }
+    si juego.tecla("izquierda") { x = x - 300 * juego.dt() }
+    juego.limpiar([20, 24, 48])
+    juego.circulo(x, 240, 20, "#ffc850")
+    juego.texto("HOLA", 20, 20, 3)
+    juego.presentar()
 }
 ```
 
